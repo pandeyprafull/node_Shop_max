@@ -12,7 +12,7 @@ const errorController = require('./controllers/error');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  'mongodb+srv://max:max123@cluster0-3tcuc.mongodb.net/Shop?retryWrites=true&w=majority';
+  'mongodb://devil:devil123@cluster0-shard-00-00-3tcuc.mongodb.net:27017,cluster0-shard-00-01-3tcuc.mongodb.net:27017,cluster0-shard-00-02-3tcuc.mongodb.net:27017/Shop?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority';
 
 const app = express();
 const store = new MongoDBStore({
@@ -72,5 +72,5 @@ mongoose
     console.log('Connection established');
   })
   .catch(err => {
-    console.log(err);
+    console.log("Error connecting to Db",err);
   });
